@@ -5,13 +5,15 @@ use App\Modules\HTML;
 $page_content = HTML::phptpl('inc/form', [
   'errors' => $errors,
   'post_parameter' => $post_parameter
+]);
+if(count($tasks)) {
+  $page_content .= HTML::phptpl('inc/table', [
+    'tasks' => $tasks,
+    'page' => $page,
+    'pages' => $pages,
+    'get_parameter' => $get_parameter
   ]);
-$page_content .= HTML::phptpl('inc/table', [
-  'tasks' => $tasks,
-  'page' => $page,
-  'pages' => $pages,
-  'get_parameter' => $get_parameter
-  ]);
+}
 
 // окончательный HTML код
 $layout_content = HTML::phptpl('layouts/app',
