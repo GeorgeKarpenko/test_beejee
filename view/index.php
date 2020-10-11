@@ -2,11 +2,15 @@
 use App\Modules\HTML;
 
 // HTML код главной страницы
-$page_content = HTML::phptpl('inc/form', ['errors' => $errors]);
+$page_content = HTML::phptpl('inc/form', [
+  'errors' => $errors,
+  'post_parameter' => $post_parameter
+  ]);
 $page_content .= HTML::phptpl('inc/table', [
   'tasks' => $tasks,
   'page' => $page,
-  'pages' => $pages
+  'pages' => $pages,
+  'get_parameter' => $get_parameter
   ]);
 
 // окончательный HTML код
