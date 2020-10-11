@@ -3,10 +3,10 @@
 composer install
 
 ## Настройки БД
-'testing' => [
+'production' => [
   'adapter' => 'mysql',
   'host' => 'localhost',
-  'name' => 'testing_db',
+  'name' => 'test',
   'user' => 'root',
   'pass' => '',
   'port' => '3306',
