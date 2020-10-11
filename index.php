@@ -1,10 +1,10 @@
 <?php
 $root_dir = 'test_beejee';
 define ('PATH', explode($root_dir, __DIR__)[0].$root_dir.'/');
-$app = require_once PATH . '/router/web.php';
+$app = require_once PATH . 'router/web.php';
 
 spl_autoload_register(function ($class_name) {
-  include PATH . $class_name . '.php';
+  include PATH . str_replace("\\", "/", $class_name) . '.php';
 });
 $url = explode('?', $_SERVER['REQUEST_URI'])[0];
 if($app[$url]){
