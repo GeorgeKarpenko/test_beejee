@@ -18,12 +18,12 @@ if($app[$url]){
 }
 else {
   http_response_code(404);
-  include( PATH . '/errors/404.php');
+  include( PATH . 'view/errors/404.php');
   die();
 }
 
 if ($_SERVER['REQUEST_URI'] == '/403') {
-  include( PATH . '/errors/403.php');
+  include( PATH . 'view/errors/403.php');
   die();
 }
 
