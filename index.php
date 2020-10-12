@@ -16,14 +16,13 @@ if($app[$url]){
     die();
   }
 }
-else {
-  http_response_code(404);
-  include( PATH . 'view/errors/404.php');
-  die();
-}
 
 if ($_SERVER['REQUEST_URI'] == '/403') {
   include( PATH . 'view/errors/403.php');
   die();
 }
+
+http_response_code(404);
+include( PATH . 'view/errors/404.php');
+die();
 
