@@ -12,7 +12,8 @@ $page_content = HTML::phptpl('inc/admin/form', [
 $page_content .= HTML::phptpl('inc/admin/table', [
   'tasks' => $tasks,
   'page' => $page,
-  'pages' => $pages
+  'pages' => $pages,
+  'get_parameter' => $get_parameter
   ]);
 }
 

@@ -45,8 +45,9 @@ class AdminController extends Controller
     $url = $_SERVER['REQUEST_URI'];
     $url = explode('?', $url);
     $url = $url[0];
+    $get_parameter = $_GET;
     
-    $this->view("view/admin.php", compact('tasks','count_tasks','pages','page', 'errors', 'url','task'));
+    $this->view("view/admin.php", compact('tasks','count_tasks','pages','page', 'errors', 'url','task','get_parameter'));
   }
 
   public function exit()
