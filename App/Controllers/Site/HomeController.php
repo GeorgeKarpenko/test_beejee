@@ -65,7 +65,7 @@ class HomeController extends Controller
 
       if (!count($errors)) {
         $my = $user->my($_POST);
-        if(count($my)){
+        if($my){
           setcookie("user", $my['login'], time()+3600, '/');
           header("Location: /admin");
         }
