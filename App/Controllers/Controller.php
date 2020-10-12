@@ -2,6 +2,10 @@
 
 namespace App\Controllers;
 
+use App\Models\{
+  User
+};
+
 class Controller
 {
   protected function view ($name, $payload) {
@@ -11,8 +15,9 @@ class Controller
   }
 
   protected function middleware ($data) {
+    $user = new User;
     if ($data == 'auth') {
-      if ($_COOKIE['user']){
+      if ($user->my($_COOKIE)){
         return true;
       }
       else {

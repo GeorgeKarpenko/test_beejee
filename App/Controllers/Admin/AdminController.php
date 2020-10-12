@@ -52,7 +52,8 @@ class AdminController extends Controller
 
   public function exit()
   {
-    setcookie("user","",time()-3600,"/");
+    setcookie("login","",time()-3600,"/");
+    setcookie("password","",time()-3600,"/");
 
     header("Location: /");
   }

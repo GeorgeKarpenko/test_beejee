@@ -64,9 +64,12 @@ class HomeController extends Controller
       }
 
       if (!count($errors)) {
-        $my = $user->my($_POST);
+        $data = $_POST;
+        $data['password'] = md5($data['password']); 
+        $my = $user->my($data);
         if($my){
-          setcookie("user", $my['login'], time()+3600, '/');
+          setcookie("login", $my['login'], time()+3600, '/');
+          setcookie("password", $my['password'], time()+3600, '/');
           header("Location: /admin");
         }
         else {

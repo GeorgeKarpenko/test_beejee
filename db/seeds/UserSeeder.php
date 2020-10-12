@@ -19,7 +19,7 @@ class UserSeeder extends AbstractSeed
             [
                 'login' => 'admin',
                 'email' => 'admin@admin.ru',
-                'password' => '123',
+                'password' => md5('123'),
                 'created_at' => '2020-10-10 13:59:27',
                 'updated_at' => '2020-10-10 13:59:27',
             ]
