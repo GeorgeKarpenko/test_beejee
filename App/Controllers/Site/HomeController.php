@@ -68,8 +68,9 @@ class HomeController extends Controller
         $data['password'] = md5($data['password']); 
         $my = $user->my($data);
         if($my){
-          setcookie("login", $my['login'], time()+3600, '/');
-          setcookie("password", $my['password'], time()+3600, '/');
+          session_start();
+          $_SESSION['login'] = $my['login'];
+          $_SESSION['password'] = $my['password'];
           header("Location: /admin");
         }
         else {

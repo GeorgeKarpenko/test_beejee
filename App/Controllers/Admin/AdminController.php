@@ -23,6 +23,8 @@ class AdminController extends Controller
 
   public function index()
   {
+    session_start();
+    $user = $_SESSION;
     $task_db = new Task;
     if($_GET['update']){
       $task = $task_db->task($_GET['update']);
@@ -47,13 +49,14 @@ class AdminController extends Controller
     $url = $url[0];
     $get_parameter = $_GET;
     
-    $this->view("view/admin.php", compact('tasks','count_tasks','pages','page', 'errors', 'url','task','get_parameter'));
+    $this->view("view/admin.php", compact('tasks','count_tasks','pages','page', 'errors', 'url','task','get_parameter', 'user'));
   }
 
   public function exit()
   {
-    setcookie("login","",time()-3600,"/");
-    setcookie("password","",time()-3600,"/");
+    session_start();
+    unset($_SESSION['login']);
+    unset($_SESSION['password']);
 
     header("Location: /");
   }

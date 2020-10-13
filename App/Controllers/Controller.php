@@ -15,9 +15,10 @@ class Controller
   }
 
   protected function middleware ($data) {
+    session_start();
     $user = new User;
     if ($data == 'auth') {
-      if ($user->my($_COOKIE)){
+      if ($user->my($_SESSION)){
         return true;
       }
       else {
