@@ -4,7 +4,8 @@ use App\Modules\HTML;
 // HTML код главной страницы
 $page_content = HTML::phptpl('inc/form', [
   'errors' => $errors,
-  'post_parameter' => $post_parameter
+  'post_parameter' => $post_parameter,
+  'task_save' => $task_save
 ]);
 if(count($tasks)) {
   $page_content .= HTML::phptpl('inc/table', [

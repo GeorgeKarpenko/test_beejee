@@ -1,3 +1,10 @@
+<?php 
+if($task_save){
+  echo('<p>Запись добавлена</p>');
+}
+
+?>
+
 <form action="<?php $_SERVER['REQUEST_URI'] ?>" target="area" method="POST">
   <div class="row">
     <div class="mb-3 col-sm">

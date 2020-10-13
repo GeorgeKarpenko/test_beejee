@@ -21,6 +21,10 @@ class HomeController extends Controller
   {
     $task = new Task;
     $errors = [];
+    if($_COOKIE['task_save']){
+      $task_save = true;
+      setcookie("task_save", true, time()-3600, '/');
+    }
     if ($_SERVER['REQUEST_METHOD'] ==='POST') {
       if (strlen($_POST['login']) < 2 || strlen($_POST['login']) > 100) {
         $errors['login'] = 'Ошибка валидации. Имя должно быть минимум 2 символа и меньше 100';
@@ -47,9 +51,9 @@ class HomeController extends Controller
     $url = $url[0];
 
     $get_parameter = $_GET;
-    $post_parameter = $_POST;
+    $post_parameter = $task_save ? null : $_POST;
     
-    $this->view("view/index.php", compact('tasks','count_tasks','pages','page', 'errors', 'url', 'get_parameter', 'post_parameter'));
+    $this->view("view/index.php", compact('tasks','count_tasks','pages','page', 'errors', 'url', 'get_parameter', 'post_parameter', 'task_save'));
   }
 
   public function autoconfigure() {

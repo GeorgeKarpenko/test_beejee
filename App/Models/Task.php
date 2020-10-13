@@ -48,6 +48,7 @@ class Task extends Model
         $query = "INSERT INTO `tasks`(`login`, `email`, `text`) VALUES ('{$data['login']}', '{$data['email']}', '{$data['text']}')";
         if($this->pdo->query($query))
         {
+            setcookie("task_save", true, time()+3600, '/');
             header("Location: ".$_SERVER['REQUEST_URI']);
         }
     }
