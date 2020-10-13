@@ -23,6 +23,7 @@ class Controller
       }
       else {
         header("Location: /403");
+        die();
       }
     }
   }
